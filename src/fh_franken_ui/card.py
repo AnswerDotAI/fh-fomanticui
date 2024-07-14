@@ -1,6 +1,6 @@
 from fasthtml import xt
 
-__all__ = ["Card"]
+__all__ = ["Card", ]
 
 
 def Card(*content, title: str, paragraph: str) -> str:
