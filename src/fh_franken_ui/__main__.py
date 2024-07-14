@@ -12,12 +12,15 @@ app, rt = fast_app(hdrs=hdrs, live=True, default_hdrs=False)
 
 @rt("/")
 def get():
-  return (
-    Title("fh-franken-ui: FastHTML Franken UI"), 
-    H1("fh-franken-ui: FastHTML Franken UI"),
-    P("A set of FastHTML components that build upon Franken UI components")
-  )
-  
+    return (
+        Title("fh-franken-ui: FastHTML Franken UI"), 
+        Div(
+            H1("fh-franken-ui: FastHTML Franken UI", cls='uk-h1'),
+            P("A set of FastHTML components that build upon Franken UI components"),
+            cls='uk-container'
+        )
+    )
+
 if __name__ == '__main__':
     # TODO: replace with something like run_uv(fname='__main__') 
     uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("PORT", default=5001)))
