@@ -1,2 +1,1 @@
-def hello() -> str:
-    return "Hello from fh-franken-ui!"
+from .card import *
