@@ -6,7 +6,7 @@ authors = [
     { name = "Daniel Roy Greenfeld", email = "62857+pydanny@users.noreply.github.com" }
 ]
 dependencies = [
-    "fasthtml@git+https://github.com/AnswerDotAI/fasthtml"
+    "python-fasthtml@git+https://github.com/AnswerDotAI/fasthtml"
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
