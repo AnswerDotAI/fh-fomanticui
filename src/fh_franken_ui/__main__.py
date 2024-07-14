@@ -17,6 +17,8 @@ def get():
         Div(
             H1("fh-franken-ui: FastHTML Franken UI", cls='uk-h1'),
             P("A set of FastHTML components that build upon Franken UI components"),
+            A('GitHub fh-franken-ui', href='https://github.com/AnswerDotAI/fh-franken-ui', cls='uk-button uk-button-default'),
+            Button('PyPI fh-franken-ui', href='pypi.org/project/fh-franken-ui', cls='uk-button uk-button-default', disabled=True),
             cls='uk-container'
         )
     )
