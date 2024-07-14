@@ -27,23 +27,29 @@ class Card:
 # Default renderers
 @register_renderer('semanticui')
 def render_semanticui(card: Card):
+    card_elements = []
+
+    # Add image div if there's an image
+    if card.image:
+        card_elements.append(Div(Img(src=card.image, cls='ui image'), cls='image'))
+
+    # Create content div
     content = [
-        Div(card.title, cls='header'),
+        A(card.title, cls='header'),
         Div(card.description, cls='description')
     ]
-    if card.image:
-        content.insert(0, Div(Img(src=card.image, cls='ui image'), cls='image'))
-    
-    buttons = [
-        A(text, href=link, cls='ui button')
-        for text, link in card.button_links
-    ]
+    card_elements.append(Div(*content, cls='content'))
 
-    return Div(
-        Div(*content, cls='content'),
-        *buttons,
-        cls='ui card'
-    )
+    # Add buttons in extra content div if there are any
+    if card.button_links:
+        buttons = [
+            A(text, href=link, cls='ui button')
+            for text, link in card.button_links
+        ]
+        card_elements.append(Div(*buttons, cls='extra content'))
+
+    # Return the complete card
+    return Div(*card_elements, cls='ui card')
 
 @register_renderer('bootstrap')
 def render_bootstrap(card: Card):
