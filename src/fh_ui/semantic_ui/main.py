@@ -1,4 +1,5 @@
 from fasthtml.common import *
+from fh_ui.card import Card
 import uvicorn
 
 hdrs = [
@@ -15,13 +16,42 @@ def get():
         Title("fh-ui: FastHTML UI"), 
         Div(
             H1("fh-ui: FastHTML UI", cls='ui header'),
-            P("A set of FastHTML components that build upon UI components"),
+            P("A set of FastHTML components that build upon CSS UI components"),
             Ul(
                 Li('Franken UI'),
                 Li('Fomantic UI / Semantic UI')
             ),
             A('GitHub fh-ui', href='https://github.com/AnswerDotAI/fh-ui', cls='ui button'),
             Button('PyPI fh-ui', href='pypi.org/project/fh-ui', cls='ui disabled button'),
+            
+            # Group of cards
+            Div(
+
+                # First card is rendered manually
+                Div(
+                    Div(
+                        Div(
+                            'Uma the Kid',
+                            cls='header'
+                        ),
+                        Div(
+                            'Uma is a girl who loves to pretend she is a mermaid',
+                            cls='description'
+                        ),
+                        cls='content',
+                    ),
+                    cls='ui card',
+                ),
+
+                # Second card is rendered using the Card class
+                Card(
+                    title='Hannah the Kid',
+                    description='Hannah is a girl who dances and sings',
+                    image='https://via.placeholder.com/150',
+                    button_links=[('Read More', '#')],
+                ),
+                cls='ui cards',
+            ),
             cls='ui container'
         )
     )
