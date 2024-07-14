@@ -5,7 +5,9 @@ description = "Add your description here"
 authors = [
     { name = "Daniel Roy Greenfeld", email = "62857+pydanny@users.noreply.github.com" }
 ]
-dependencies = []
+dependencies = [
+    "fasthtml@git+https://github.com/AnswerDotAI/fasthtml"
+]
 readme = "README.md"
 requires-python = ">= 3.12"
 
