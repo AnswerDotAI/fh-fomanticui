@@ -3,7 +3,9 @@ name = "fh-franken-ui"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
-    { name = "Daniel Roy Greenfeld", email = "62857+pydanny@users.noreply.github.com" }
+    { name = "Daniel Roy Greenfeld", email = "62857+pydanny@users.noreply.github.com" },
+    { name = "Audrey Roy Greenfeld", email = "62857+audreyfeldroy@users.noreply.github.com" }
+
 ]
 dependencies = [
     "python-fasthtml@git+https://github.com/AnswerDotAI/fasthtml"
