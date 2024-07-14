@@ -30,12 +30,16 @@ def get():
                 # First card is rendered manually
                 Div(
                     Div(
+                        Img(src='https://via.placeholder.com/150', cls='ui image'),
+                        cls='image'
+                    ),
+                    Div(
                         Div(
                             'Uma the Kid',
                             cls='header'
                         ),
                         Div(
-                            'Uma is a girl who loves to pretend she is a mermaid',
+                            'Uma is a girl who swims like a mermaid',
                             cls='description'
                         ),
                         cls='content',
