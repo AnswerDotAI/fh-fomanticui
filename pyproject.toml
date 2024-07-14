@@ -1,5 +1,5 @@
 [project]
-name = "fh-franken-ui"
+name = "fh-ui"
 version = "0.1.0"
 description = "Add your description here"
 authors = [
@@ -28,4 +28,4 @@ dev-dependencies = [
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/fh_franken_ui"]
+packages = ["src/fh_ui"]
