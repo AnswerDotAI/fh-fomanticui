@@ -47,7 +47,8 @@ def get():
                 hx_post='/change_stylesheet',
                 hx_trigger='change',
                 hx_target='#dynamic-stylesheet',
-                hx_swap='outerHTML'
+                hx_swap='outerHTML',
+                name='style',
             ),
             
             H2('Cards', cls='ui header'),
