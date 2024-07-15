@@ -4,10 +4,11 @@ FastHTML UI components that can be rendered with the structure of your preferred
 
 As a POC, we have a FastHTML `Card` that can be rendered with any of:
 
-* [Bootstrap](https://getbootstrap.com/docs/5.3/components/card/)
 * [Pico CSS](https://picocss.com/docs/card)
-* [Semantic UI / Fomantic UI](https://fomantic-ui.com/views/card.html)
+* [Bootstrap](https://getbootstrap.com/docs/5.3/components/card/)
+* [Tailwind with Daisy UI](https://daisyui.com/components/card/)
 * [Franken UI](https://franken-ui.dev/docs/card)
+* [Semantic UI / Fomantic UI](https://fomantic-ui.com/views/card.html)
 
 ## Quickstart
 

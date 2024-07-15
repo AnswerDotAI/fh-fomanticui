@@ -17,12 +17,20 @@ def get():
         Div(
             H1("fh-ui: FastHTML UI", cls='ui header'),
             P("A set of FastHTML components that build upon CSS UI components"),
-            Ul(
-                Li('Franken UI'),
-                Li('Fomantic UI / Semantic UI')
-            ),
+
             A('GitHub fh-ui', href='https://github.com/AnswerDotAI/fh-ui', cls='ui button'),
             Button('PyPI fh-ui', href='pypi.org/project/fh-ui', cls='ui disabled button'),
+
+            H2('Renderer', cls='ui header'),
+
+            Select(
+                Option('Pico CSS', value='pico'),
+                Option('Bootstrap', value='bootstrap'),
+                Option('Tailwind CSS with DaisyUI', value='tailwind_daisy'),
+                Option('Franken UI', value='frankenui'),
+                Option('Semantic UI / Fomantic UI', value='semanticui'),
+                cls='ui dropdown'
+            ),
             
             H2('Cards', cls='ui header'),
             P('The first card is rendered manually. The second card is rendered using the Card class.'),
