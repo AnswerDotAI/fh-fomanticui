@@ -54,37 +54,47 @@ def get():
             H2('Cards', cls='ui header'),
             P('The first card is rendered manually. The second card is rendered using the Card class.'),
 
-            # Group of cards
+            # 2 cards, each paired with the FastHTML code used to render it
             Div(
 
-                # First card is rendered manually
-                Div(
-                    Div(
-                        Img(src='https://via.placeholder.com/150', cls='ui image'),
-                        cls='image'
-                    ),
+                Section(
+                    H3('This first card is rendered manually', cls='ui header'),
                     Div(
                         Div(
-                            'Uma the Kid',
-                            cls='header'
+                            Img(src='https://via.placeholder.com/150', cls='ui image'),
+                            cls='image'
                         ),
                         Div(
-                            'Uma is a girl who swims like a mermaid',
-                            cls='description'
+                            Div(
+                                'Uma the Kid',
+                                cls='header'
+                            ),
+                            Div(
+                                'Uma is a girl who swims like a mermaid',
+                                cls='description'
+                            ),
+                            cls='content',
                         ),
-                        cls='content',
+                        cls='ui card',
                     ),
-                    cls='ui card',
+                    Div(
+                        Pre('TODO: add FastHTML code here')
+                    ),
                 ),
 
-                # Second card is rendered using the Card class
-                Card(
-                    title='Hannah the Kid',
-                    description='Hannah is a girl who dances and sings',
-                    image='https://via.placeholder.com/150',
-                    button_links=[('Read More', '#')],
+                Section(
+                    H3('This second card is rendered using the Card class', cls='ui header'),
+                    Card(
+                        title='Hannah the Kid',
+                        description='Hannah is a girl who dances and sings',
+                        image='https://via.placeholder.com/150',
+                        button_links=[('Read More', '#')],
+                    ),
+
+                    Div(
+                        Pre('TODO: add FastHTML code here')
+                    ),
                 ),
-                cls='ui cards',
             ),
             cls='ui container'
         )
