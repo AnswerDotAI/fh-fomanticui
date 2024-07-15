@@ -21,7 +21,7 @@ hdrs = [
 app, rt = fast_app(hdrs=hdrs, live=True, default_hdrs=False)
 
 @rt('/change_stylesheet')
-def change_stylesheet(style: str):
+def post(style: str):
     return Link(href=stylesheets[style], rel='stylesheet', id='dynamic-stylesheet')
 
 @rt("/")
