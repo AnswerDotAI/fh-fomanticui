@@ -1,5 +1,7 @@
 from fasthtml.common import *
+from fh_ui import card
 from fh_ui.card import Card
+from html import escape
 import uvicorn
 
 # Since this is just a CSS POC, for now we don't include jQuery or the js for each CSS framework
@@ -23,6 +25,32 @@ app, rt = fast_app(hdrs=hdrs, live=True, default_hdrs=False)
 @rt('/change_stylesheet')
 def post(style: str):
     return Link(href=stylesheets[style], rel='stylesheet', id='dynamic-stylesheet')
+
+card1 = Div(
+    Div(
+        Img(src='https://via.placeholder.com/150', cls='ui image'),
+        cls='image'
+    ),
+    Div(
+        Div(
+            'Uma the Kid',
+            cls='header'
+        ),
+        Div(
+            'Uma is a girl who swims like a mermaid',
+            cls='description'
+        ),
+        cls='content',
+    ),
+    cls='ui card',
+)
+
+card2 = Card(
+        title='Hannah the Kid',
+        description='Hannah is a girl who dances and sings',
+        image='https://via.placeholder.com/150',
+        button_links=[('Read More', '#')],
+    ),
 
 @rt("/")
 def get():
@@ -59,40 +87,43 @@ def get():
 
                 Section(
                     H3('This first card is rendered manually', cls='ui header'),
+                    card1,
                     Div(
-                        Div(
-                            Img(src='https://via.placeholder.com/150', cls='ui image'),
-                            cls='image'
-                        ),
-                        Div(
-                            Div(
-                                'Uma the Kid',
-                                cls='header'
-                            ),
-                            Div(
-                                'Uma is a girl who swims like a mermaid',
-                                cls='description'
-                            ),
-                            cls='content',
-                        ),
-                        cls='ui card',
-                    ),
-                    Div(
-                        Pre('TODO: add FastHTML code here')
+                        # Show the Python code that generated the card as a string
+                        Pre(Code("""Div(
+    Div(
+        Img(src='https://via.placeholder.com/150', cls='ui image'),
+        cls='image'
+    ),
+    Div(
+        Div(
+            'Uma the Kid',
+            cls='header'
+        ),
+        Div(
+            'Uma is a girl who swims like a mermaid',
+            cls='description'
+        ),
+        cls='content',
+    ),
+    cls='ui card',
+)""")),
+                        Pre(Code(to_xml(card1))),
                     ),
                 ),
 
                 Section(
                     H3('This second card is rendered using the Card class', cls='ui header'),
-                    Card(
-                        title='Hannah the Kid',
-                        description='Hannah is a girl who dances and sings',
-                        image='https://via.placeholder.com/150',
-                        button_links=[('Read More', '#')],
-                    ),
+                    card2,
 
                     Div(
-                        Pre('TODO: add FastHTML code here')
+                        Pre(Code("""Card(
+        title='Hannah the Kid',
+        description='Hannah is a girl who dances and sings',
+        image='https://via.placeholder.com/150',
+        button_links=[('Read More', '#')],
+    )""")),
+                        Pre(Code(to_xml(card2))),
                     ),
                 ),
             ),
