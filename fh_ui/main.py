@@ -15,6 +15,7 @@ stylesheets = {
 }
 
 hdrs = [
+    HighlightJS(langs=['python',]),
     Meta(name='description', content='fh-ui: FastHTML UI'),
     Link(href=stylesheets['semanticui'], rel='stylesheet', id='dynamic-stylesheet'),
     Script(src='https://unpkg.com/htmx.org@2.0.1/dist/htmx.js'),
@@ -107,8 +108,8 @@ def get():
         cls='content',
     ),
     cls='ui card',
-)""")),
-                        Pre(Code(to_xml(card1))),
+)""", cls='language-python')),
+                        Pre(Code(to_xml(card1), cls='language-html')),
                     ),
                 ),
 
@@ -118,12 +119,12 @@ def get():
 
                     Div(
                         Pre(Code("""Card(
-        title='Hannah the Kid',
-        description='Hannah is a girl who dances and sings',
-        image='https://via.placeholder.com/150',
-        button_links=[('Read More', '#')],
-    )""")),
-                        Pre(Code(to_xml(card2))),
+    title='Hannah the Kid',
+    description='Hannah is a girl who dances and sings',
+    image='https://via.placeholder.com/150',
+    button_links=[('Read More', '#')],
+)""", cls='language-python')),
+                        Pre(Code(to_xml(card2), cls='language-html')),
                     ),
                 ),
             ),
