@@ -1,3 +1,4 @@
+from calendar import c
 from dataclasses import dataclass
 from typing import List, Tuple, Optional, Callable, Dict
 from fasthtml.common import *
@@ -14,17 +15,14 @@ def register_renderer(framework: str):
 
 @dataclass
 class Card:
-    title: str
-    description: str
-    image: Optional[str] = None
-    button_links: List[Tuple[str, str]] = ()
-
+    title: str; description: str; image: Optional[str] = None; button_links: List[Tuple[str, str]] = ()
     def __xt__(self, uiframework='semanticui'):
         if uiframework not in renderer_registry:
             raise ValueError(f"No renderer registered for framework: {uiframework}")
         return renderer_registry[uiframework](self)
 
 # Default renderers
+# TODO: move to separate files once the architecture stabilizes
 @register_renderer('semanticui')
 def render_semanticui(card: Card):
     card_elements = []
@@ -50,6 +48,16 @@ def render_semanticui(card: Card):
 
     # Return the complete card
     return Div(*card_elements, cls='ui card')
+
+@register_renderer('frankenui')
+def render_frankenui(card: Card):
+    return Div(
+        H3(card.title, cls='card-title'),
+        P(card.description, cls='uk-margin'),
+        A("Add Friend", href="#"),
+        A("View Profile", href="#"),
+        cls='uk-card uk-card-default uk-card-body'
+    )
 
 @register_renderer('bootstrap')
 def render_bootstrap(card: Card):
