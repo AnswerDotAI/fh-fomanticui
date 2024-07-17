@@ -7,10 +7,6 @@ import uvicorn
 # Since this is just a CSS POC, for now we don't include jQuery or the js for each CSS framework
 stylesheets = {
     'pico': 'https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css',
-    'bootstrap': 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
-    # TODO: add daisyui. It also requires tailwindcss separately from https://cdn.tailwindcss.com
-    # 'tailwind_daisy': 'https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css',
-    'frankenui': 'https://unpkg.com/franken-wc@0.0.2/dist/css/slate.min.css',
     'semanticui': 'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css',
 }
 
@@ -68,9 +64,6 @@ def get():
 
             Select(
                 Option('Pico CSS', value='pico'),
-                Option('Bootstrap', value='bootstrap'),
-                # Option('Tailwind CSS with DaisyUI', value='tailwind_daisy'),
-                Option('Franken UI', value='frankenui'),
                 Option('Semantic UI / Fomantic UI', value='semanticui'),
                 cls='ui dropdown',
                 hx_post='/change_stylesheet',
