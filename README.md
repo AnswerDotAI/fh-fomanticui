@@ -2,15 +2,14 @@
 
 FastHTML UI components that can be rendered with the structure of your preferred CSS UI framework
 
-Still building out this POC, still unstable.
+Still experimenting and very unstable.
 
-As a POC, we have a FastHTML `Card` that can be rendered with any of:
+As a POC, we have a FastHTML `Card`. The idea was to allow it to be rendered with any of:
 
 * [Pico CSS](https://picocss.com/docs/card)
-* [Bootstrap](https://getbootstrap.com/docs/5.3/components/card/)
-* [Tailwind with Daisy UI](https://daisyui.com/components/card/)
-* [Franken UI](https://franken-ui.dev/docs/card)
 * [Semantic UI / Fomantic UI](https://fomantic-ui.com/views/card.html)
+
+It is not quite right yet. The idea was to have a `Card` that can be rendered with the structure of any CSS UI framework. This was a POC to see if it is possible. Following feedback, this is probably going in a different direction...
 
 ## Quickstart
 
