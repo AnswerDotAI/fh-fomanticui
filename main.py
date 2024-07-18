@@ -59,7 +59,7 @@ def get():
         Title("fh-ui: FastHTML UI"),
         Div(
             H1("fh-ui: FastHTML UI", cls="ui header"),
-            P("A set of FastHTML components that build upon CSS UI components"),
+            P("A UI demo showing how FastHTML works with any CSS UI component framework."),
             A(
                 "GitHub fh-ui",
                 href="https://github.com/AnswerDotAI/fh-ui",
@@ -67,6 +67,15 @@ def get():
             ),
             Button(
                 "PyPI fh-ui", href="pypi.org/project/fh-ui", cls="ui disabled button"
+            ),
+            H2("Background", cls="ui header"),
+            P(
+                "FastHTML comes with a set of Pico CSS components. This project showcases:"
+            ),
+            Ul(
+                Li("What those Pico CSS components look like"),
+                Li("How to use them"),
+                Li("How to follow the FastHTML pattern to create new components with any CSS framework"),
             ),
             H2("CSS UI Component Framework", cls="ui header"),
             Select(
