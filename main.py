@@ -154,4 +154,4 @@ def get():
 
 if __name__ == '__main__':
     # TODO: replace with something like run_uv(fname='__main__') 
-    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("PORT", default=5001)))
+    uvicorn.run(app, host='0.0.0.0', port=int(os.getenv("PORT")))
