@@ -6,6 +6,10 @@ Still experimenting and very unstable.
 
 [https://fh-ui-production-1870.up.railway.app/](https://fh-ui-production-1870.up.railway.app/)
 
+TODO:
+* [ ] Show all components from 01_pico.ipynb when Pico CSS is selected
+* [ ] Show all components from 02_fomantic.ipynb when Fomantic UI is selected
+
 ## Background
 
 Currently this is a learning experiment:
