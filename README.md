@@ -2,17 +2,11 @@
 
 FastHTML [Fomantic-UI](https://fomantic-ui.com/) components.
 
-In early development.
+In early development. Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Docs
 
-Coming soon to https://answerdotai.github.io/fh-fomanticui/
-
-## Contributing
-
-To see the components so far, run `nbdev_preview` and open the link to the rendered notebook in your browser.
-
-Then add components in nbs/ and check that they render correctly.
+https://answerdotai.github.io/fh-fomanticui/
 
 # Old
 
