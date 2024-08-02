@@ -11,6 +11,7 @@ wheels/
 
 # Quarto and nbdev
 _proc
+nbs/sidebar.yml
 
 # fasthtml
 .sesskey
