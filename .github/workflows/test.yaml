@@ -10,5 +10,5 @@ jobs:
 
       - uses: fastai/workflows/nbdev-ci@master
         with:
-          version: '3.12'
+          version: '3.11'
           pre: 1
