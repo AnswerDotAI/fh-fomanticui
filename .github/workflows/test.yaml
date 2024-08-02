@@ -5,6 +5,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps: 
+      - name: Install setuptools
+        run: pip install setuptools
+
       - uses: fastai/workflows/nbdev-ci@master
         with:
           version: '3.12'
