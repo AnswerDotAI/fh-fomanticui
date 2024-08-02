@@ -16,5 +16,9 @@ website:
     search: true
   sidebar:
     style: floating
+    contents:
+      - 00_core.ipynb
+      - section: Elements
+        contents: elements/*.ipynb
 
-metadata-files: [nbdev.yml, sidebar.yml]
+metadata-files: [nbdev.yml]
