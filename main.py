@@ -1,6 +1,6 @@
 from fasthtml.common import *
-from fh_ui import card
-from fh_ui.card import Card
+from fh_fomanticui import card
+from fh_fomanticui.card import Card
 from html import escape
 import uvicorn
 
