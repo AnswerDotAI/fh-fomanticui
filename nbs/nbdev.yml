@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "fh-fomanticui"
+  site-url: "https://AnswerDotAI.github.io/fh-fomanticui"
+  description: "FastHTML Fomantic UI components."
+  repo-branch: main
+  repo-url: "https://github.com/AnswerDotAI/fh-fomanticui"
