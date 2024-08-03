@@ -39,6 +39,7 @@ for cell in nb.cells:
         print(cell.source)
         print(nb.cells.index(cell))
         if cell.source.split("\n")[1].startswith("@delegates"):
+            # HACK: Super sketchy bad way to find FastTags in a notebook, temporary solution
             print("FastTag definition")
             
             # Append this cell to the list of FastTags to document, but without the export line
@@ -62,15 +63,6 @@ def get():
             ),
             Button(
                 "PyPI fh-fomanticui", href="pypi.org/project/fh-fomanticui", cls="ui disabled button"
-            ),
-            H2("Background", cls="ui header"),
-            P(
-                "FastHTML comes with a set of Pico CSS components. This project showcases:"
-            ),
-            Ul(
-                Li("How to follow the FastHTML pattern from fasthtml/nbs/02_xtend.ipynb to create new components"),
-                Li("How to use the Fomantic UI CSS framework in FastHTML"),
-                Li("What all the FastTags in fh-fomanticui do"),
             ),
 
             H2("Buttons", cls="ui header"),
