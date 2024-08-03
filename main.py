@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from fh_fomanticui import card
+from fh_fomanticui.button import FButton
 from fh_fomanticui.card import Card
 from html import escape
 import uvicorn
@@ -56,28 +56,33 @@ card2 = Card(
 @rt("/")
 def get():
     return (
-        Title("fh-ui: FastHTML UI"),
+        Title("fh-fomanticui: Fomantic UI components for FastHTML"),
         Div(
-            H1("fh-ui: FastHTML UI", cls="ui header"),
-            P("A UI demo showing how FastHTML works with any CSS UI component framework."),
+            H1("fh-fomanticui", cls="ui header"),
+            P("Fomantic UI FastTags to use in FastHTML projects."),
             A(
-                "GitHub fh-ui",
-                href="https://github.com/AnswerDotAI/fh-ui",
+                "GitHub fh-fomanticui",
+                href="https://github.com/AnswerDotAI/fh-fomanticui",
                 cls="ui button",
             ),
             Button(
-                "PyPI fh-ui", href="pypi.org/project/fh-ui", cls="ui disabled button"
+                "PyPI fh-fomanticui", href="pypi.org/project/fh-fomanticui", cls="ui disabled button"
             ),
             H2("Background", cls="ui header"),
             P(
                 "FastHTML comes with a set of Pico CSS components. This project showcases:"
             ),
             Ul(
-                Li("What those Pico CSS components look like"),
-                Li("How to use them"),
-                Li("How to follow the FastHTML pattern to create new components with any CSS framework"),
+                Li("How to follow the FastHTML pattern in fasthtml/nbs/02_xtend.ipynb to create new components"),
+                Li("How to use the Fomantic UI CSS framework in FastHTML"),
+                Li("What all the FastTags in fh-fomanticui do"),
             ),
-            H2("CSS UI Component Framework", cls="ui header"),
+
+            H2("Buttons", cls="ui header"),
+
+            FButton("Click me"),
+
+            H2("Ignore everything below here for now...", cls="ui header"),
             Select(
                 Option("Fomantic UI (community fork of Semantic UI)", value="fomantic"),
                 Option("Pico CSS", value="pico"),
