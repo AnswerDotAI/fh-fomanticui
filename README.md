@@ -8,4 +8,4 @@ In early development. Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.
 
 
 * nbdev docs generated from nbs: https://answerdotai.github.io/fh-fomanticui/
-* FastHTML app version of docs: [https://fh-ui-production-1870.up.railway.app/](https://fh-ui-production-1870.up.railway.app/)
+* FastHTML app version of docs: https://fh-fomanticui.up.railway.app/ (seeing if we can autogenerate this from the nbs)
