@@ -3,7 +3,8 @@ project:
 
 format:
   html:
-    theme: cosmo
+    minimal: true
+    theme: none
     css: https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css
     toc: true
 
