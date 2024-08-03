@@ -39,7 +39,6 @@ for cell in nb.cells:
     if cell.cell_type == "code" and cell_lines[0] == "# | export":
         # HACK: Find all FastTags in the notebook
         if cell_lines[2].endswith("-> FT:") or cell_lines[2].endswith("->FT"):
-            print("FastTag definition")
             # Append this cell to the list of FastTags to document, but without the export line
             fts_to_document.append("\n".join(cell_lines[1:]))
         print("\n")
