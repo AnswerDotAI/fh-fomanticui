@@ -1,5 +1,5 @@
 from fasthtml.common import *
-from fh_fomanticui.button import FButton
+from fh_fomanticui.button import FButton, FAnimatedButton
 from fh_fomanticui.card import Card
 from html import escape
 import nbformat
@@ -29,10 +29,21 @@ def post(style: str):
     return Link(href=stylesheets[style], rel='stylesheet', id='dynamic-stylesheet')
 
 
-
-
 with open("nbs/elements/00_button.ipynb") as f:
     nb = nbformat.read(f, as_version=4)
+
+fts_to_document = []
+
+for cell in nb.cells:
+    if cell.cell_type == "code" and cell.source.split("\n")[0] == "# | export":
+        print(cell.source)
+        print(nb.cells.index(cell))
+        if cell.source.split("\n")[1].startswith("@delegates"):
+            print("FastTag definition")
+            
+            # Append this cell to the list of FastTags to document, but without the export line
+            fts_to_document.append("\n".join(cell.source.split("\n")[1:]))
+        print("\n")
 
 cell = nb.cells[5]
 FButtonSource = "\n".join(cell.source.split("\n")[1:])
@@ -64,9 +75,17 @@ def get():
 
             H2("Buttons", cls="ui header"),
 
-            FButton("Click me"),
+            
 
-            Div(Pre(Code(FButtonSource))),
+            Div(
+                FButton("Click me"),   
+                Pre(Code(fts_to_document[0], cls="python"), cls="code"), cls="ui segment"),
+            
+            Div(
+                FAnimatedButton("Next", I(cls="right arrow icon")),
+                Pre(Code(fts_to_document[1], cls="python"), cls="code"), cls="ui segment"),
+
+            # [Div(Pre(Code(fui_ft, cls="python"), cls="code"), cls="ui segment") for fui_ft in fts_to_document],
 
             cls="ui container",
         ),
