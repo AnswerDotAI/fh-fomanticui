@@ -35,19 +35,18 @@ with open("nbs/elements/00_button.ipynb") as f:
 fts_to_document = []
 
 for cell in nb.cells:
-    if cell.cell_type == "code" and cell.source.split("\n")[0] == "# | export":
+    cell_lines = cell.source.split("\n")
+    if cell.cell_type == "code" and cell_lines[0] == "# | export":
         print(cell.source)
         print(nb.cells.index(cell))
-        if cell.source.split("\n")[1].startswith("@delegates"):
-            # HACK: Super sketchy bad way to find FastTags in a notebook, temporary solution
+        
+        # HACK: Find all FastTags in the notebook
+        if cell_lines[2].endswith("-> FT:") or cell_lines[2].endswith("->FT"):
             print("FastTag definition")
             
             # Append this cell to the list of FastTags to document, but without the export line
-            fts_to_document.append("\n".join(cell.source.split("\n")[1:]))
+            fts_to_document.append("\n".join(cell_lines[1:]))
         print("\n")
-
-cell = nb.cells[5]
-FButtonSource = "\n".join(cell.source.split("\n")[1:])
 
 @rt("/")
 def get():
