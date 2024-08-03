@@ -4,11 +4,10 @@
 __all__ = ['Icon']
 
 # %% ../nbs/elements/06_icon.ipynb 3
-from dataclasses import dataclass, asdict
 from fastcore.utils import *
 from fastcore.xml import *
 from fastcore.xtras import *
-from fastcore.meta import use_kwargs, delegates
+from fastcore.meta import delegates
 from fasthtml.components import *
 
 # %% ../nbs/elements/06_icon.ipynb 4
