@@ -2,6 +2,7 @@ from fasthtml.common import *
 from fh_fomanticui.button import FButton
 from fh_fomanticui.card import Card
 from html import escape
+import nbformat
 import uvicorn
 
 # Since this is just a CSS POC, for now we don't include jQuery or the js for each CSS framework
@@ -27,31 +28,14 @@ app, rt = fast_app(hdrs=hdrs, live=True, default_hdrs=False)
 def post(style: str):
     return Link(href=stylesheets[style], rel='stylesheet', id='dynamic-stylesheet')
 
-card1 = Div(
-    Div(
-        Img(src='https://via.placeholder.com/150', cls='ui image'),
-        cls='image'
-    ),
-    Div(
-        Div(
-            'Uma the Kid',
-            cls='header'
-        ),
-        Div(
-            'Uma is a girl who swims like a mermaid',
-            cls='description'
-        ),
-        cls='content',
-    ),
-    cls='ui card',
-)
 
-card2 = Card(
-        title='Hannah the Kid',
-        description='Hannah is a girl who dances and sings',
-        image='https://via.placeholder.com/150',
-        button_links=[('Read More', '#')],
-    ),
+
+
+with open("nbs/elements/00_button.ipynb") as f:
+    nb = nbformat.read(f, as_version=4)
+
+cell = nb.cells[5]
+FButtonSource = "\n".join(cell.source.split("\n")[1:])
 
 @rt("/")
 def get():
@@ -73,7 +57,7 @@ def get():
                 "FastHTML comes with a set of Pico CSS components. This project showcases:"
             ),
             Ul(
-                Li("How to follow the FastHTML pattern in fasthtml/nbs/02_xtend.ipynb to create new components"),
+                Li("How to follow the FastHTML pattern from fasthtml/nbs/02_xtend.ipynb to create new components"),
                 Li("How to use the Fomantic UI CSS framework in FastHTML"),
                 Li("What all the FastTags in fh-fomanticui do"),
             ),
@@ -82,82 +66,11 @@ def get():
 
             FButton("Click me"),
 
-            H2("Ignore everything below here for now...", cls="ui header"),
-            Select(
-                Option("Fomantic UI (community fork of Semantic UI)", value="fomantic"),
-                Option("Pico CSS", value="pico"),
-                cls="ui dropdown",
-                hx_post="/change_stylesheet",
-                hx_trigger="change",
-                hx_target="#dynamic-stylesheet",
-                hx_swap="outerHTML",
-                name="style",
-            ),
-            H2("Cards", cls="ui header"),
-            P(
-                "The first card is rendered manually. The second card is rendered using the Card class."
-            ),
-            # 2 cards, each paired with the FastHTML code used to render it
-            Div(
-                Section(
-                    H3("This first card is created manually", cls="ui header"),
-                    P("Using function components from fasthtml.common"),
-                    card1,
-                    Div(
-                        # Show the Python code that generated the card as a string
-                        Pre(
-                            Code(
-                                """Div(
-    Div(
-        Img(src='https://via.placeholder.com/150', cls='ui image'),
-        cls='image'
-    ),
-    Div(
-        Div(
-            'Uma the Kid',
-            cls='header'
-        ),
-        Div(
-            'Uma is a girl who swims like a mermaid',
-            cls='description'
-        ),
-        cls='content',
-    ),
-    cls='ui card',
-)""",
-                                cls="language-python",
-                            )
-                        ),
-                        Pre(Code(to_xml(card1), cls="language-html")),
-                    ),
-                ),
-                Section(
-                    H3(
-                        "This second card is created using the FCard class",
-                        cls="ui header",
-                    ),
-                    card2,
-                    Div(
-                        Pre(
-                            Code(
-                                """Card(
-    title='Hannah the Kid',
-    description='Hannah is a girl who dances and sings',
-    image='https://via.placeholder.com/150',
-    button_links=[('Read More', '#')],
-)""",
-                                cls="language-python",
-                            )
-                        ),
-                        Pre(Code(to_xml(card2), cls="language-html")),
-                    ),
-                ),
-            ),
+            Div(Pre(Code(FButtonSource))),
+
             cls="ui container",
         ),
     )
 
 if __name__ == '__main__':
-    # TODO: replace with something like run_uv(fname='__main__') 
-    port = int(os.getenv("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    serve()
