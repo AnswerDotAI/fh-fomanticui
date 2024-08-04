@@ -17,7 +17,7 @@ hdrs = [
             "python",
         ]
     ),
-    Meta(name="description", content="fh-ui: FastHTML UI"),
+    Meta(name="description", content="fh-fomanticui: FastHTML Fomantic UI"),
     Link(href=stylesheets["fomantic"], rel="stylesheet", id="dynamic-stylesheet"),
     Script(src="https://unpkg.com/htmx.org@2.0.1/dist/htmx.js"),
 ]
