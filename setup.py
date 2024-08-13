@@ -1,5 +1,6 @@
 from configparser import ConfigParser
 import setuptools, shlex
+import sys
 
 if sys.version_info >= (3, 12):
     from packaging.version import Version as parse_version
@@ -27,7 +28,7 @@ licenses = {
 }
 statuses = [ '1 - Planning', '2 - Pre-Alpha', '3 - Alpha',
     '4 - Beta', '5 - Production/Stable', '6 - Mature', '7 - Inactive' ]
-py_versions = '3.6 3.7 3.8 3.9 3.10'.split()
+py_versions = '3.10 3.11 3.12'.split()
 
 requirements = shlex.split(cfg.get('requirements', ''))
 if cfg.get('pip_requirements'): requirements += shlex.split(cfg.get('pip_requirements', ''))
@@ -36,7 +37,7 @@ lic = licenses.get(cfg['license'].lower(), (cfg['license'], None))
 dev_requirements = (cfg.get('dev_requirements') or '').split()
 
 setuptools.setup(
-    name = 'fh-ui',
+    name = 'fh-fomanticui',
     license = lic[0],
     classifiers = [
         'Development Status :: ' + statuses[int(cfg['status'])],
